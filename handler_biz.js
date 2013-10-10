@@ -17,7 +17,7 @@ module.exports = {
             memo: req.body.memo,
             regdatde: req.body.regdate,
             update: req.body.update
-        }
+        };
         var file = {
             id: req.body.member_id,
             parent_type: 'user',
@@ -26,7 +26,7 @@ module.exports = {
             file_path: req.files.image.path.substring(req.files.image.path.lastIndexOf('\\') + 1),
             file_type: req.files.image.type,
             file_size: req.files.image.size
-        }
+        };
         
         Obj.create(obj, function (err, doc) {
             if (err) return handleError(err);
@@ -39,4 +39,4 @@ module.exports = {
         });
         return true;
     }
-}
+};
