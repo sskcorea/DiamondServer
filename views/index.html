@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="css/jqm_themes.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+<!--link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" /-->
+<link rel="stylesheet" href="css/style.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<script type="text/javascript">
+jQuery.fn.log = function (msg) {
+    console.log("%s: %o", msg, this);
+    return this;
+};
+$(document).ready(function(){
+    $('#btnGoogle').click(function(){
+        location.href="/auth/google";
+    });
+    $('#btnFacebook').click(function(){
+        location.href="/auth/facebook";
+    });
+}).log('ready');
+
+</script>
+
+</head>
+
+<body>
+
+    <div data-role='header'>Welcome to 24Market</div>
+    <div id='#loginWrap' data-role='content'>
+        <label>login</label>
+        <button id='btnGoogle'>google</button>
+        <button id='btnFacebook'>facebook</button>
+    </div>
+
+    <%= ejs_string %>
+</body>
+
+</html>

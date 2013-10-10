@@ -1,0 +1,126 @@
+<% 
+	layout('layout')
+	script('../js/swipe.js')
+	var script = "";
+	script += "<script>";
+	script += "$(document).ready(function() {";
+	script += "mainInit(false);";
+	script += "$('#bannerScroller').swipe({";
+	script += "swipe:function(event, direction, distance, duration, fingerCount) {";
+	script += "if(direction == 'left'){"; 
+	script += "bannerAnimate('next');";
+	script += "} else if(direction == 'right') {";
+	script += "bannerAnimate('prev');";
+	script += "}";
+	script += "},";
+	script += "allowPageScroll:'vertical',";
+	script += "threshold:100";
+	script += "});";
+	script += "$('#scrollLeft').click(function(){";
+	script += "bannerAnimate('prev');";
+	script += "});";
+	script += "$('#scrollRight').click(function(){";
+	script += "bannerAnimate('next');";
+	script += "});";
+	script += "$('#btnRegister').click(function(){";
+	script += "location.href = '../views/sell';";
+	script += "});";
+	script += "$('#btnSelling').click(function(){";
+	script += "location.href = '../views/selling';";
+	script += "});";
+	script += "$('#btnBuy').click(function(){";
+	script += "location.href = '../views/buy';";
+	script += "});";
+	script += "$('#btnIntro').click(function(){";
+	script += "location.href = '../views/sell';";
+	script += "});";
+	script += "});"; 
+	script += "$(window).resize(function(){";
+	script += "mainInit(true);";
+
+	script += "$('#bannerScroller').css('left', '-' + (wid * curPosition) + 'px');";
+
+	script += "$('#w').html($(this).width());";
+	script += "});";
+
+	script += "</script>"; 
+
+	block('scripts', script)
+-%>
+<div id='wrap'>
+	<div id='headBanner'>
+		<div id='scrollLeft' class='scroll'>◀</div>
+		<div id='scrollRight' class='scroll'>▶</div>
+		<ul id='bannerScroller'>
+			<li class='clsBnner'>
+				<div class='inBanner'>
+					<div class='banner_img' style="background:url('../img/iphone.png') no-repeat;background-size:auto 80%;background-position:50% 50%;"></div>
+					<div class='banner_content'>
+						<h3 style='color:#27A4D2;'>24 Market</h3>
+						<p>
+							Register your keywords to sell something used.
+							Browse your keyword you want to buy.
+						</p>
+						<a class='banner_box' style='background-color:#27A4D2;' href='../views/sell'>Register keywords ▶</a>
+					</div>
+				</div>
+			</li>
+			<li class='clsBnner'>
+				<div class='inBanner'>
+					<h3 style='color:#8CC63F;'>WEB Standard</h3>
+					<div>
+						We use html5 to make our homepage.<Br/>
+						Please update your browser.(Chrome, IE10, etc..)<Br/>
+						<br />
+					</div>
+				</div>
+			</li>
+			<li class='clsBnner'>
+				<div class='inBanner'>
+					<h3 style='color:#444;'>Keyword based.</h3>
+					<div>
+						What are you looking for?<Br/>
+						Just browse keywords you are looking for.<Br/>
+						Register your keywords.<Br/>
+						<br />
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul id="indicator">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<div class='clear'></div>
+
+</div>
+<div id='mainBody'>
+	<div class='body_content' id='btnRegister'>
+		<div class='body_img'><img src='../img/sell.png' /></div>
+		<div class='body_other'>
+			<h4>Selling</h4>
+			<p>Register keyword you want to sell. You would receive our notification.</p>
+		</div>
+	</div>
+		<div class='body_content' id='btnSelling'>
+		<div class='body_img'><img src='../img/pen.png' /></div>
+		<div class='body_other'>
+			<h4>Selling List</h4>
+			<p>List of your keywords.</p>
+		</div>
+	</div>
+	<div class='body_content' id='btnBuy'>
+		<div class='body_img'><img src='../img/buy.png' /></div>
+		<div class='body_other'>
+			<h4>Buying</h4>
+			<p>Register keyword you want to buy.</p>
+		</div>
+	</div>
+	<div class='body_noImg' id='btnIntro'>
+		<h4>24 Market Intro</h4>
+		<div>We hope you satisfy our service and you will receive notifications if keywords are matched with others. </div>
+	</div>
+</div>
+<!--iframe style='width:100%;min-height:300px;' src="http://www.youtube.com/embed/zOEQpWn6iOs?list=UUZKPwfwt7XQtEc08GGxlnbw" frameborder="0" allowfullscreen></iframe-->

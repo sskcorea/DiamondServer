@@ -1,0 +1,12 @@
+<% 
+    layout('layout')
+    script('../js/swipe.js')
+-%>
+<script type="text/javascript">
+
+</script>
+<% if(isAuth){%>
+BUY
+<%} else {%>
+<script>location.href='./login';</script>
+<% } %>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" >
+<title><%= title %></title>
+<link rel="stylesheet" href="../css/style.css" />
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/jquery-ui-1.10.3.js"></script>
+<script src="../js/script.js"></script>
+<script>
+jQuery.fn.log = function (msg) {
+    console.log("%s: %o", msg, this);
+    return this;
+};
+$(document).ready(function(){
+	window.scrollTo(0, 1);
+	$('#header_menu').click(function(){
+		$('#nav').toggle('normal');
+	});
+	$('#sell').click(function(){
+		location.href="/views/sell";
+	});
+	$('#buy').click(function(){
+		location.href="/views/buy";
+	});
+	$('#list').click(function(){
+		location.href="/views/selling";
+	});
+	$('#intro').click(function(){
+		location.href="/views/intro";
+	});
+	$('#mypage').click(function(){
+		location.href="/views/mypage";
+	});
+});
+</script>
+<%-stylesheets%>
+<%-blocks.stylesheet -%>
+<%-scripts%>
+<%-blocks.script -%>
+</head>
+<body>
+<div id='header'>
+<a href='../views/main'>24 Market</a><div id='header_menu'><img src='../img/bars.png' /></div>
+</div>
+<div id='nav'>
+	<ul>
+		<li id='intro'>Introduction</li>
+		<li id='buy'>Buy</li>
+		<li id='sell'>Sell</li>
+		<li id='list'>Selling List</li>
+		<li id='mypage'>My Page</li>
+	</ul>
+</div>
+	<!-- 화면 별 헤더 필요할 수도 있으니까 block추가 -->
+	<%-blocks.header%>
+	
+<%-body%>
+<div id='footer'>  
+<%-blocks.footer%>
+	<div class='f_bottom'>
+		<span class='f_box'>FAQ&nbsp;</span>
+		<span class='f_box'>&nbsp;개인정보취급방침&nbsp;</span>
+		<% if(isAuth){%>
+		<span class='f_box'><a href='../views/logout'>&nbsp;Logout&nbsp;</a></span>
+		<%} else {%>
+		<span class='f_box'><a href='../views/login'>&nbsp;Login&nbsp;</a></span>
+		<%}%>
+		<% if(isAuth){%>
+		<span class='f_box'><a href='../views/mypage'>&nbsp;My Page&nbsp;</a></span>
+		<%} %>
+	</div>
+	<div style='margin-top:5px;'></div>
+	<span>©2013 </span>
+	<span style='font-weight:bold;font-size:1.3em;margin-top:10px;color:#D85B42;'>24Market</span>
+</div>
+</body>
+</html>

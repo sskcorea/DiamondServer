@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title><%= title %></title>
+<link rel="stylesheet" href="../css/jqm_themes.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+<!--link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" /-->
+<link rel="stylesheet" href="../css/style.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		// ejs test 
+		<% if(!isAuth) { %>
+			location.href = '/index.html';
+		<%}%>
+		
+		$('#addKeyword').click(function(){
+			addList();
+		});
+		$('#keywordInput').keydown(function(e) {
+			if(e.keyCode == 13) {
+				addList();
+			}
+		});
+		$('#sendToServerTest').click(function() {
+			$.ajax({
+				type : 'POST',
+				url : '/op?optype=data&opcode=c',
+				data : {
+					obj : { member_id:  'rockkjs66@gmail.com',
+							locale: 'california',
+							type:   'sell',
+							name: 'ferrari',
+							memo: 'all new ferrari',
+							regdate: '5/20/2013',
+							upddate: '5/20/2013'
+					}
+				},
+				dataType : 'json',
+				success : function(data){
+					alert(data);
+				},
+				fail : function() {
+					alert('failed');
+				}
+			})
+		});
+	});
+
+function addList() {
+	$('#added').append("<div class='keyworkTag'>" + $('#keywordInput').val() + "</div>");
+	$('#keywordInput').val('');
+}
+</script>
+</head>
+<body>
+	<div data-role='page'>
+		<div data-role='header'>
+			Register your products
+		</div>
+		<div data-role='content' id='regiProduct'>
+			<img src='../img/logo.jpg' alt='product image' />
+			<div id='keywordWrap'>
+				<span id='keywordList' style='width:80%;'>
+					<input type='text' data-clear-btn='true' value='' id='keywordInput' />
+				</span>
+				<span id='addKeyword' style='margin:0.5em;' data-role='button' data-icon='plus' data-iconpos='right'>Keyword</span>
+			</div>
+			<div class='clear'></div>
+			<div id='added'></div>
+			<div class='clear'></div>
+			<button id='sendToServerTest'>Send</button>
+			<form id="fileupload" method="post" enctype="multipart/form-data" action="/op?optype=biz&opcode=fu" data-ajax="false">
+				<p><input type="file" name="image" value="image"/></p>
+				<p><input type="submit" value="upload" /></p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

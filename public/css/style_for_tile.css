@@ -1,0 +1,140 @@
+*{padding:0;margin:0;font-family: "Helvetica", "Arial","Verdana", "sans-serif";font-size: 100%;}
+body{
+	background-color:#F6F6F6;
+}
+.clear{clear:both;height:0;}
+.blue_title_bottom10 {color:#336699;font-weight:bold;margin-bottom:10px;}
+.lineheight200{line-height:200%;}
+.border1pxSolid{
+	border:1px solid #444;
+}
+/********* layout *********************/
+.header_wrap{
+	width:100%;margin:0 auto;background-color:#fff;height:90px;
+}
+#header{
+	margin:0 auto;
+	width:960px;
+	height:90px;
+}
+#logo{
+	float:left;
+	width:320px;
+	height:60px;
+	line-height:60px;
+	font-size:2em;
+}
+#mini_menu{
+	float:left;
+	width:640px;
+	height:40px;
+	line-height:40px;
+	font-size:0.8em;
+	text-align:right;
+}
+#mini_menu span{
+	margin:0 10px;
+}
+#main_menu{
+	clear:both;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	width:960px;
+}
+#main_menu ul{
+	list-style:none;
+	float:left;
+	height:30px;
+}
+#main_menu li{
+	height:30px;
+	float:left;
+	background-color:#CC3D3D;
+	color:#FAECC5;
+	width:160px;
+}
+#main_menu li > div:hover{
+	background-color:#FFA7A7;
+	color:#CC3D3D;
+	color:980000;
+	cursor:pointer;
+}
+#main_menu_right{
+	float:left;
+	background-color:#444;
+	width:320px;
+	height:30px;
+	color:#fff;
+	font-size:2em;
+}
+#footer{
+	margin-top:10px;
+	padding:10px 0;
+	height:90px;
+	line-height:150%;
+	text-align:center;
+	clear:both;
+	border-top:1px solid #eee;
+	font-size:1em;background-color:#fff;color:#222;
+}
+/* media query */
+/* width : 960 ~     --> default */
+/* width : 768 ~ 959 --> ipad 가로  */
+@media only screen and (max-width : 959px) {
+	
+}
+/* width : 601~767 */
+@media only screen and (max-width : 767px) {
+	
+}
+/* width : 0~600 -->  */
+@media only screen and (max-width : 600px) {
+	#header{
+		width:100%;
+	}
+	#logo{
+		clear:both;
+		width:100%;
+	}
+	#mini_menu{
+		display:none;
+	}
+	#main_menu{
+		width:100%;
+	}
+	#main_menu li{
+		width:100%;
+	}
+	#main_menu li:nth-child(1){
+		width:100%;
+	}
+}
+
+/*** size free style ****/
+/**************** End of main styles ************************/
+
+#loginWrap {
+	padding:1em;
+}
+
+#container {
+	position: relative;
+	padding: 10px 10%;
+}
+/* regitser product */
+#regiProduct {
+	text-align:center;
+}
+#keywordWrap {
+	text-align:center;
+}
+#keywordWrap span {
+	float:left;	
+}
+.keyworkTag {
+	float:left;
+	border:2px solid gray;
+	margin:0.5em;
+	padding:0.3em;
+}

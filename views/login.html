@@ -1,0 +1,33 @@
+<% 
+	layout('layout')
+	//stylesheet('http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css')
+	 
+	var script = "";
+	script += "<script>";
+	script += "$(document).ready(function() {";
+	script += "$('#btnLogin').click(function(){";
+	script += "location.href='main';";
+	script += "});";
+	script += "});";
+	script += "</script>"; 
+
+	block('scripts', script)
+-%>
+<!--form-->
+<% if(!isAuth) { %>
+<div id='loginWrap'>
+	<button id='g_Login'>google</button>
+	<button id='f_Login'>facebook</button>
+</div>
+<% } else { %>
+<script>location.href = './main';</script>
+<% } %>
+<!--/form-->
+<script>
+$('#g_Login').click(function(){
+	location.href = '/auth/google';
+});
+$('#f_Login').click(function(){
+	location.href = '/auth/facebook';
+});
+</script>

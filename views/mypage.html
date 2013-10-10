@@ -1,0 +1,60 @@
+<% 
+	layout('layout')
+	script('../js/swipe.js')
+-%>
+<style>
+</style>
+<%if(isAuth){%>
+<div class='text'>
+회원 정보는 로그인 타입에 따라 기본 정보만을 저장하며 제3자에게 제공하지 않습니다.<a href='#'>more..</a>
+</div>
+<ul id='userIfoImg'>
+	<li><img src='http://atomjazz.mireene.com/img/atomjazz.png' /></li>
+	<li><span><%=userName%></span></li>
+</ul>
+<table id='userInfo' cellspacing=0 cellpadding=0>
+	<tr>
+		<td>Login</td>
+		<td><%=provider%> account</td>
+	</tr>
+	<tr>
+		<td>24Market ID</td>
+		<td><%=userId%></td>
+	</tr>
+	<tr>
+		<td>e-mail</td>
+		<td><%=userEmail%></td>
+	</tr>
+	<tr>
+		<td>Phone</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Nick Name</td>
+		<td></td>
+	</tr>
+</table>
+<h4 class='smallTitle'>My Keywords</h4>
+<ul class='smallTitleContent'>
+	<% 
+	if(!true) {  //DB에서 가져와서 있으면..이건 형들이 구현해줘요 
+		for(var i = 1 ; i <= 5 ; i++) {
+	%>
+	<li><%=i%></li>
+	<%}%>
+	<%} else {%>
+	<li>You did not registered any keywords.</li> 
+	<%}%>
+</ul>
+<h4 class='smallTitle'>추가 회원 정보 등록</h4>
+<form>
+<ul class='smallTitleContent'>
+	<li>phone:<input type='tel' id='userPhone'/></li>
+	<li>phone:<input type='tel' id='userPhone'/></li>
+	<li>phone:<input type='tel' id='userPhone'/></li>
+	<li>phone:<input type='tel' id='userPhone'/></li>
+</ul>
+</form>
+<%} else {%>
+<script>location.href='./login';</script>
+<% } %>
